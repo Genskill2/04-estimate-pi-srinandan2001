@@ -23,7 +23,7 @@ float mc_pi(int n)
         x = frandom();
         y = frandom();
         len = (x * x) + (y * y);
-        distance = sqrt(len)
+        distance = sqrt(len);
         if(len < 1)
         {
             insidecircle++;
