@@ -11,17 +11,20 @@ float frandom()
 
 float mc_pi(int n)
 {
+    int i;
     int insidecircle = 0;
     int insidesquare = n;
-    for(int i = 0; i < n; i++)
+    for(i = 0; i < n; i++)
     {
         float x;
         float y;
         float len;
+        float distance;
         x = frandom();
         y = frandom();
         len = (x * x) + (y * y);
-        if(len <= 1)
+        distance = sqrt(len)
+        if(len < 1)
         {
             insidecircle++;
         }
