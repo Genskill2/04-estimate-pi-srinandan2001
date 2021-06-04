@@ -9,12 +9,11 @@ float frandom()
     return ret;
 }
 
-float mc_pi(int n)
+float mc_pi(int insidesquare)
 {
     int i;
     int insidecircle = 0;
-    int insidesquare = n;
-    for(i = 0; i < n; i++)
+    for(i = 0; i < insidesquare; i++)
     {
         float x;
         float y;
