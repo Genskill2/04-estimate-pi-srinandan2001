@@ -2,37 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-float frandom()
-{
-    long int q = random();
-    float ret = (float)q/(float)RAND_MAX;
-    return ret;
-}
-
-float mc_pi(int insidesquare)
-{
-    int i;
-    int insidecircle = 0;
-    for(i = 0; i < insidesquare; i++)
-    {
-        float x;
-        float y;
-        float len;
-        float distance;
-        x = frandom();
-        y = frandom();
-        len = (x * x) + (y * y);
-        distance = sqrt(len);
-        if(len < 1)
-        {
-            insidecircle++;
-        }
-    }
-    float pi = 4.0 * (insidecircle / insidesquare);
-    return pi;
-}
-
-
 
 int main(void)
 {
@@ -61,4 +30,34 @@ int main(void)
         }
         
     }
+}
+
+float frandom()
+{
+    long int q = random();
+    float ret = (float)q/(float)RAND_MAX;
+    return ret;
+}
+
+float mc_pi(int insidesquare)
+{
+    int i;
+    int insidecircle = 0;
+    for(i = 0; i < insidesquare; i++)
+    {
+        float x;
+        float y;
+        float len;
+        float distance;
+        x = frandom();
+        y = frandom();
+        len = (x * x) + (y * y);
+        distance = sqrt(len);
+        if(len < 1)
+        {
+            insidecircle++;
+        }
+    }
+    float pi = 4.0 * (insidecircle / insidesquare);
+    return pi;
 }
