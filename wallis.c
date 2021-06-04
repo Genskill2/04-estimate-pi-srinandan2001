@@ -40,7 +40,7 @@ float wallis_pi(int n)
     {
         p = (4 * (i * i));
         q = ((4 * (i * i)) - 1);
-        r = pi * (p/q);
+        r = r * (p/q);
     }
     pi = 2 * r;
     return pi;
