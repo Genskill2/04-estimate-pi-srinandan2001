@@ -3,36 +3,14 @@
 #include <stdio.h>
 #include <math.h>
 
+float mc_pi(int);
+
 float frandom()
 {
     long int q = random();
     float ret = (float)q/(float)RAND_MAX;
     return ret;
 }
-
-float mc_pi(int insidesquare)
-{
-    int i;
-    int insidecircle = 0;
-    for(i = 0; i < insidesquare; i++)
-    {
-        float x;
-        float y;
-        float len;
-        float distance;
-        x = frandom();
-        y = frandom();
-        len = (x * x) + (y * y);
-        distance = sqrt(len);
-        if(len < 1)
-        {
-            insidecircle++;
-        }
-    }
-    float pi = 4.0 * (insidecircle / insidesquare);
-    return pi;
-}
-
 
 int main(void)
 {
@@ -41,6 +19,7 @@ int main(void)
     pi0 = mc_pi(25000);
     pi1 = mc_pi(25000);
     printf("%f %f\n", pi0, pi1);
+    
     if (pi0 == pi1)
     {
         printf("Two separate estimates of pi are exactly the same. This is unlikely.\n");
@@ -61,4 +40,28 @@ int main(void)
         }
         
     }
+}
+
+float mc_pi(int insidesquare)
+{
+    int i;
+    int insidecircle = 0;
+    float x;
+    float y;
+    float len;
+    float distance;
+    double pi;
+    for(i = 0; i < insidesquare; i++)
+    {
+        x = frandom();
+        y = frandom();
+        len = (x * x) + (y * y);
+        distance = pow(len,0.5);
+        if(len < 1)
+        {
+            insidecircle++;
+        }
+    }
+    pi = 4*(double)insidecircle/insidesquare;
+    return pi;
 }
