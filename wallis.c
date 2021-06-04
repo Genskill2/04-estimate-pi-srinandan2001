@@ -36,11 +36,12 @@ float wallis_pi(int n)
     float q;
     float r;
     float pi;
+    r = 1;
     for(i=1; i<=n; i++)
     {
         p = (4 * (i * i));
-        q = ((4 * (i * i)) - 1);
-        r = r * (p/q);
+        q = (p - 1);
+        r*= (p/q);
     }
     pi = 2 * r;
     return pi;
